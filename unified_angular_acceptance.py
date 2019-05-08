@@ -3,7 +3,7 @@ import numpy as np
 from scipy.interpolate import make_interp_spline
 from scipy.integrate import quad
 
-# these values are obtained from a fit
+# these values are obtained from a fit (explained in https://github.com/philippeller/angular_acceptance/blob/master/Angular_acceptance.ipynb)
 support_x = np.array([-1.  , -0.6 , -0.25,  0.1 ,  0.5 ,  0.9 ,  1.  ])
 components = np.array([[ 0.        ,  0.02185064, -0.02789483,  0.10264894,  0.15271317,
         -0.47946672, -0.85732023],
