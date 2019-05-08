@@ -1,3 +1,4 @@
+# version 791544fff48a5d826b6fdf84cbedc916
 from __future__ import division
 import numpy as np
 from scipy.interpolate import make_interp_spline
@@ -27,7 +28,7 @@ def ang(params, values):
     transformed_params = np.dot(params, components) + mean
     # construct spline
     f = make_interp_spline(support_x, transformed_params, bc_type=([(1, 0.)], [(1, 0.)]))
-    # make sure we're positive averywhere
+    # make sure we're positive everywhere
     positive_f = lambda x : np.clip(f(x), 0., None)
     # normalize
     norm = quad(positive_f, -1, 1)
