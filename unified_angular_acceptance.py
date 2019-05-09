@@ -1,8 +1,9 @@
-# version 14e303a1fd245334fe8333eacb024307
+# version 48783e041496e41c9e0b934d37145d2d
 from __future__ import division
 import numpy as np
 from scipy.integrate import quad
 from scipy.interpolate import make_interp_spline
+from numpy.polynomial import polynomial
 
 # these values are obtained from a fit (explained in https://github.com/philippeller/angular_acceptance/blob/master/Angular_acceptance.ipynb)
 support_x = np.array([-1.  , -0.6 , -0.25,  0.1 ,  0.5 ,  0.9 ,  1.  ])
@@ -37,6 +38,23 @@ def ang(params, values):
     out *= 0.68 / norm[0]
     return out
     
+def angsens_poly(params):
+    """
+    Return standard IceCube format
+    
+    params : list/array
+        the two parametrrs p0 and p1 
+    """
+    
+    x = np.linspace(-1,1,101)
+    sampled = ang(params, x)
+    coeffs = np.zeros(12)
+    coeffs[0] = np.max(sampled)
+    coeffs[1:] = polynomial.polyfit(x, sampled, 10)
+    return coeffs
     
 if __name__=='__main__':
-    print ang([0,0], np.linspace(-1,1,11))
+    from sys import argv
+    if len(argv) > 1: p = [float(argv[1]), float(argv[2])]
+    else: p = [0,0]
+    print '\n'.join([str(a) for a in angsens_poly(p)])
