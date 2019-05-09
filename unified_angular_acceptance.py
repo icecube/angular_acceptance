@@ -1,4 +1,4 @@
-# version 992b9fb507f15631ddbcb9c422e82bd3
+# version 3b5f725a9763f3f8d93f2de9aab29ebb
 from __future__ import division
 import numpy as np
 from scipy.integrate import quad
@@ -43,5 +43,5 @@ def ang(params, values):
     return out
     
     
-    if __name__=='__main__':
-        print ang([0,0], np.linspace(-1,1,11))
+if __name__=='__main__':
+    print ang([0,0], np.linspace(-1,1,11))
