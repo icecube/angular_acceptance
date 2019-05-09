@@ -1,13 +1,8 @@
-# version 3b5f725a9763f3f8d93f2de9aab29ebb
+# version 14e303a1fd245334fe8333eacb024307
 from __future__ import division
 import numpy as np
 from scipy.integrate import quad
-
-try:
-    from scipy.interpolate import make_interp_spline
-except ImportError:
-    from new_scipy_stuff import make_interp_spline
-
+from scipy.interpolate import make_interp_spline
 
 # these values are obtained from a fit (explained in https://github.com/philippeller/angular_acceptance/blob/master/Angular_acceptance.ipynb)
 support_x = np.array([-1.  , -0.6 , -0.25,  0.1 ,  0.5 ,  0.9 ,  1.  ])
