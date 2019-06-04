@@ -1,4 +1,4 @@
-# version db2550e747331de00dc9879331ae5681
+# version d6df05b15079004c7f95062fb8228580
 from __future__ import division, print_function
 import numpy as np
 from scipy.integrate import quad
@@ -6,13 +6,13 @@ from scipy.interpolate import make_interp_spline
 from numpy.polynomial import polynomial
 
 # these values are obtained from a fit (explained in https://github.com/philippeller/angular_acceptance/blob/master/Angular_acceptance.ipynb)
-support_x = np.array([-1.  , -0.6 ,  0.2 ,  0.6 ,  0.75,  0.9 ,  1.  ])
-components = np.array([[ 0.        , -0.04173206, -0.08273521, -0.09952227,  0.04633073,
-         0.4499595 ,  0.88141849],
-       [ 0.        , -0.19142412, -0.17404567,  0.46835844,  0.73826994,
-         0.36108428, -0.1956551 ]])
-mean = np.array([0.        , 0.08878613, 0.43311141, 0.62266136, 0.6649289 ,
-       0.61862511, 0.54641979])
+support_x = np.array([-1.  , -0.5 , -0.2 ,  0.35,  0.65,  0.95,  1.05])
+components = np.array([[ 0.        , -0.00545327,  0.01655248, -0.1366884 , -0.07822519,
+         0.51390016,  0.84308956],
+       [-0.        , -0.45087175, -0.51799428,  0.24076603,  0.60613246,
+         0.30925652, -0.08597765]])
+mean = np.array([0.        , 0.14623077, 0.26576604, 0.4832101 , 0.63038745,
+       0.57494938, 0.48991044])
 n_components = 2
 
 def ang(params, values):
