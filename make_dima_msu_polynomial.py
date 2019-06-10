@@ -5,6 +5,14 @@ from scipy.integrate import quad
 from scipy.interpolate import make_interp_spline
 from numpy.polynomial import polynomial
 
+
+'''small module to produce icetray compatible outputs (normalization + 10d polynomial)
+
+Useage example:
+---------------
+./make_dima_msu_polynomial.py 0.3 -1 > as.mynewmodel
+'''
+
 def msu(p, coseta):
     '''
     MSU parameterization 
